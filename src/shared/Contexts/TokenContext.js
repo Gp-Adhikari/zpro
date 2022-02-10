@@ -17,19 +17,28 @@ const TokenContextProvider = ({ children }) => {
 
   //get csrf token
   useEffect(() => {
+    if (currentLocation === "/") {
+      return 0;
+    }
+
     const abortController = new AbortController();
 
     fetch(url + "/csrf", {
       method: "GET",
       signal: abortController.signal,
       credentials: "include",
+
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
     })
       .then((res) => res.json())
       .then((data) => {
         setCsrfToken(data.csrfToken);
       });
     return () => abortController.abort();
-  }, []);
+  }, [currentLocation]);
 
   //get token if refresh token exists
   useEffect(() => {
