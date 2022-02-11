@@ -620,6 +620,9 @@ header {
     padding: 5rem 0;
     .vacancyTitle {
       line-height: 3rem;
+      h3.highlight {
+        color: $main-color;
+      }
     }
     .vacancyRequirement {
       line-height: 3rem;

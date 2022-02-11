@@ -817,6 +817,10 @@ header .header-wrapper nav.nav-shrink {
   line-height: 3rem;
 }
 
+.applyNowSection .applyNowContainer .vacancyTitle h3.highlight {
+  color: #f6a01f;
+}
+
 .applyNowSection .applyNowContainer .vacancyRequirement {
   line-height: 3rem;
 }
@@ -1302,3 +1306,4 @@ footer .bottomFooter .socialMediaIcons .circle:hover {
   margin-bottom: 1rem;
   width: 100px;
 }
+/*# sourceMappingURL=styles.css.map */

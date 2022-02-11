@@ -2,11 +2,12 @@ import React, { useContext, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Title from "./Title.component";
 import Congrats from "./Congrats.component";
+import Seo from "./Seo.component";
 
 import { TokenContext } from "../Contexts/TokenContext";
 import { url } from "../URL";
 
-const CarrersItem = ({ data }) => {
+const CareersItem = ({ data }) => {
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -143,11 +144,16 @@ const CarrersItem = ({ data }) => {
 
     return (
       <>
+        <Seo
+          title={career.title}
+          description="Zpro is a company specializing in the IT sector. We are hard working, creative and passionate in the field of website design, development and software development. We also include services like logo design and website redesign. We will help you grow your business digitally.
+      Zpro is well-established and trusted IT company for high quality services with modern and custom design for reasonable cost and with high efficiency. We try our best to make our clients happy and satisfy with our creations."
+        />
         <Congrats loading={loading} />
         <div className="applyNowSection" style={{ marginTop: "-3rem" }}>
           <div className="applyNowContainer">
             <div className="vacancyTitle">
-              <h3>Apply Now!</h3>
+              <h3 className="highlight">Apply Now!</h3>
               <h1>
                 {career.title} {career.type === 2 ? "(Intern)" : null}
               </h1>
@@ -364,4 +370,4 @@ const CarrersItem = ({ data }) => {
     </>
   );
 };
-export default CarrersItem;
+export default CareersItem;

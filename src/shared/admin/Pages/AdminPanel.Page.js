@@ -4,7 +4,7 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import AdminHeader from "../Components/AdminHeader.Component";
 import Dashboard from "../Components/Dashboard.Component";
 import Portfolio from "../Components/Portfolio.Component";
-import Carrers from "../Components/Carrers.Component";
+import Careers from "../Components/Careers.Component";
 import Contact from "../Components/Contact.Component";
 
 import { TokenContext } from "../../Contexts/TokenContext";
@@ -36,7 +36,7 @@ const AdminPanel = () => {
             <Routes>
               <Route path="/dashboard" exact="true" element={<Dashboard />} />
               <Route path="/portfolio" exact="true" element={<Portfolio />} />
-              <Route path="/carrers" exact="true" element={<Carrers />} />
+              <Route path="/careers" exact="true" element={<Careers />} />
               <Route path="/contact" exact="true" element={<Contact />} />
               <Route path="/applicants" exact="true" element={<Applicants />} />
             </Routes>

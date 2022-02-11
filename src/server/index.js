@@ -1,10 +1,15 @@
 require("dotenv").config({ path: "./.env" });
 import express from "express";
+const https = require("node:https");
 import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
 import helmet from "helmet";
+import cors from "cors";
+
 const compression = require("compression");
 const csrf = require("csurf");
+
+const fs = require("node:fs");
 
 const cluster = require("cluster");
 import os from "node:os";
@@ -13,7 +18,6 @@ import * as React from "react";
 import ReactDOM from "react-dom/server";
 import { matchPath } from "react-router-dom";
 import { StaticRouter } from "react-router-dom/server";
-import serialize from "serialize-javascript";
 import App from "../shared/App";
 import routes from "../shared/routes";
 
@@ -36,8 +40,27 @@ mongoose.connection.on("error", () => {
 
 const app = express();
 
+const sslServer = https.createServer(
+  {
+    key: fs.readFileSync("./cert/key.pem"),
+    cert: fs.readFileSync("./cert/cert.pem"),
+  },
+  app
+);
+
+// app.use(cors());
+
 //using helmet for security
 app.use(helmet());
+
+//blob warning fix
+app.use(function (req, res, next) {
+  res.setHeader(
+    "Content-Security-Policy",
+    "default-src * data: 'unsafe-eval' 'unsafe-inline' blob:"
+  );
+  return next();
+});
 
 //limit file size
 app.use(express.json({ limit: "50mb" }));
@@ -210,7 +233,7 @@ if (cluster.isMaster) {
     cluster.fork();
   });
 } else {
-  app.listen(process.env.PORT || 8080, () => {
+  sslServer.listen(process.env.PORT || 8080, () => {
     console.log("Port: " + 8080, process.pid);
   });
 }
