@@ -1,0 +1,188 @@
+@import "./adminPanel.scss";
+@media screen and (max-width: 950px) {
+  .adminHeader {
+    z-index: 100;
+    background-color: #111325;
+    color: #fff;
+    .lineContainer {
+      display: none;
+    }
+    img.burger {
+      display: block;
+      width: 40px;
+    }
+    .userId {
+      p.user {
+        display: none;
+      }
+      img.user-black {
+        display: none;
+      }
+      img.user-white {
+        display: block;
+      }
+      img.down-arrow {
+        display: none;
+      }
+      .logout-tooltip {
+        .logout-wrapper {
+          background-color: $main-color;
+          p {
+            color: #000;
+          }
+        }
+      }
+    }
+  }
+  .sideBar {
+    display: none;
+    z-index: 1;
+    position: fixed;
+    width: fit-content;
+    padding-top: 5.45rem;
+    top: 0;
+    overflow-y: scroll;
+    .logo {
+      display: none;
+    }
+    nav {
+      .navLine {
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1450px) {
+  .contacts-wrapper {
+    .contacts {
+      h2 {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  .contacts-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+  .adminPortfolioContainer {
+    .portfolioCardContainer {
+      grid-template-columns: auto auto;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .contacts-wrapper {
+    grid-template-columns: auto;
+  }
+  .adminPortfolioContainer {
+    .portfolioCardContainer {
+      grid-template-columns: auto;
+    }
+  }
+  .adminTitle {
+    h1 {
+      font-size: 1.2rem;
+    }
+    p {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .adminPanelContainer {
+    .adminPanelContent {
+      p.title {
+        font-size: 1.5rem;
+        &::before {
+          max-width: 8rem;
+          margin-left: -4rem;
+        }
+      }
+      .loginForm {
+        padding: 1.5rem 3rem;
+        margin-top: 3rem;
+        img {
+          width: 70px;
+          height: 70px;
+        }
+        p.Header {
+          font-size: 1.5rem;
+        }
+        .formInput {
+          input {
+            max-width: 300px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .dashboardContainer {
+    .visits-wrapper {
+      flex-direction: column;
+      justify-content: center;
+      .todays-visits {
+        margin: 1rem 0 0 0;
+      }
+    }
+  }
+  .adminPanelContainer {
+    .adminPanelContent {
+      p.title {
+        font-size: 1rem;
+        &::before {
+          max-width: 5rem;
+          margin-left: -2rem;
+        }
+      }
+      .loginForm {
+        padding: 1rem 2rem;
+        margin-top: 2rem;
+        img {
+          width: 50px;
+          height: 50px;
+        }
+        p.Header {
+          font-size: 1.2rem;
+        }
+        .formInput {
+          p {
+            font-size: 0.7rem;
+          }
+          input {
+            max-width: 220px;
+            margin-top: 0.1rem;
+          }
+        }
+        input[type="button"] {
+          margin-top: 0.5rem;
+          padding: 0.2rem 1rem;
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 350px) {
+  .contacts-wrapper {
+    .contacts {
+      .contact-info {
+        p {
+          font-size: 0.7rem;
+        }
+      }
+      .contact-infomsg {
+        p {
+          font-size: 0.7rem;
+        }
+      }
+    }
+  }
+}

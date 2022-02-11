@@ -3,6 +3,7 @@ import express from "express";
 import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
 import helmet from "helmet";
+const compression = require("compression");
 const csrf = require("csurf");
 
 const cluster = require("cluster");
@@ -16,6 +17,10 @@ import serialize from "serialize-javascript";
 import App from "../shared/App";
 import routes from "../shared/routes";
 
+//multer stuff
+const multer = require("multer");
+multer({ dest: "./public/images", dest: "./public/AppliedApplicant" });
+
 //connecting to mongodb
 mongoose.connect(process.env.URI);
 
@@ -28,17 +33,6 @@ mongoose.connection.on("connected", () => {
 mongoose.connection.on("error", () => {
   console.log("Error connecting to database!");
 });
-
-//require models
-require("./models/RefreshToken");
-require("./models/Portfolio");
-require("./models/VacancyAnnouncement");
-require("./models/VacancyApplicant");
-require("./models/Contact");
-require("./models/Admin");
-require("./models/Otp");
-require("./models/PageVisit");
-require("./models/TotalVisits");
 
 const app = express();
 
@@ -54,10 +48,38 @@ app.use(cookieParser());
 //csrf protection
 app.use(csrf({ cookie: { httpOnly: true, secure: false } }));
 
+//compression
+app.use(compression());
+
 //get csrf token
 app.get("/api/csrf", (req, res) => {
   return res.status(200).send({ status: true, csrfToken: req.csrfToken() });
 });
+
+//require models
+require("./models/RefreshToken");
+require("./models/Portfolio");
+require("./models/VacancyAnnouncement");
+require("./models/VacancyApplicant");
+require("./models/Contact");
+require("./models/Admin");
+require("./models/Otp");
+require("./models/PageVisit");
+require("./models/TotalVisits");
+
+//routes
+const authRoute = require("./routes/authRoute");
+const contactRoute = require("./routes/contactRoute");
+const portfolioRoute = require("./routes/portfolioRoute");
+const vacancyRoute = require("./routes/vacancyRoute");
+const pageVisitsRoute = require("./routes/pageVisitRoute");
+
+//use routes
+app.use("/api", authRoute);
+app.use("/api", contactRoute);
+app.use("/api", portfolioRoute);
+app.use("/api", vacancyRoute);
+app.use("/api", pageVisitsRoute);
 
 ///////////////////////////////////////////////////////////////////////
 app.use(express.static("dist"));
@@ -130,35 +152,48 @@ app.get("*", (req, res, next) => {
     });
   }
 
-  const promise = activeRoute.fetchInitialData
-    ? activeRoute.fetchInitialData(req.path)
-    : Promise.resolve();
+  try {
+    const markup = ReactDOM.renderToString(
+      <StaticRouter location={req.url}>
+        <App serverData={"hi"} />
+      </StaticRouter>
+    );
 
-  promise
-    .then((data) => {
-      const markup = ReactDOM.renderToString(
-        <StaticRouter location={req.url}>
-          <App serverData={data} />
-        </StaticRouter>
-      );
+    res.send(`
+        <!doctype html>
+        <html lang="en">
+          <head>
+          <title>Zpro - Official Site</title>
+            <script src="/bundle.js" defer></script>
+            <link href="/main.css" rel="stylesheet">
+            <link rel="manifest" href="/manifest.json"/>
+            <meta charset="utf-8"/>
+            <meta name="theme-color" content="#000000"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+           
+          </head>
+  
+          <body>
+            <div id="app">${markup}</div>
+          </body>
+        </html>
+      `);
+  } catch (error) {
+    next();
+  }
+});
 
-      res.send(`
-      <!DOCTYPE html>
-      <html lang="en">
-        <head>
-          <script src="/bundle.js" defer></script>
-          <link href="/main.css" rel="stylesheet">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <script>window.__INITIAL_DATA__ = ${serialize(data)}</script>
-        </head>
+//if any syntax error occurs ------ do at last
+app.use(function (err, req, res, next) {
+  if (err.code === "EBADCSRFTOKEN") {
+    // handle CSRF token errors here
+    res.status(403);
+    return res.json({ status: false, message: "Not a valid address." });
+  }
 
-        <body>
-          <div id="app">${markup}</div>
-        </body>
-      </html>
-    `);
-    })
-    .catch(next);
+  return res
+    .status(err.status || 500)
+    .json({ status: false, message: "Syntax Error!" });
 });
 
 //get number of cpus of server

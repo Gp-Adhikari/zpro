@@ -4,8 +4,8 @@ import Services from "./pages/Services.page";
 import Portfolio from "./components/portfolioComponent/Portfolio.component";
 import Careers from "./pages/Careers.page";
 import ContactUs from "./components/ContactUs.component";
-import Grid from "./Grid";
-import { fetchPopularRepos } from "./api";
+import AdminPanel from "./admin/pages/AdminPanel.page";
+import AdminLogin from "./admin/pages/AdminLogin.page";
 
 const routes = [
   {
@@ -29,13 +29,20 @@ const routes = [
     component: Careers,
   },
   {
+    path: "/careers/:id",
+    component: Careers,
+  },
+  {
     path: "/contact",
     component: ContactUs,
   },
   {
-    path: "/popular/:id",
-    component: Grid,
-    fetchInitialData: (path = "") => fetchPopularRepos(path.split("/").pop()),
+    path: "/admin",
+    component: AdminLogin,
+  },
+  {
+    path: "/admin/*",
+    component: AdminPanel,
   },
 ];
 

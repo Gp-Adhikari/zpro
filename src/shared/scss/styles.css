@@ -18,6 +18,10 @@ body {
   margin-top: 0.5rem;
 }
 
+.not-available {
+  color: red;
+}
+
 .banner-container {
   background-color: #111325;
   padding: 8rem 0;
@@ -1298,4 +1302,3 @@ footer .bottomFooter .socialMediaIcons .circle:hover {
   margin-bottom: 1rem;
   width: 100px;
 }
-/*# sourceMappingURL=styles.css.map */

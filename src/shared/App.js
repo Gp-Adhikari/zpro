@@ -5,23 +5,28 @@ import Page404 from "./pages/Page404.page";
 import "./scss/styles.css";
 import "./scss/responsive.css";
 import "./scss/loader.css";
+import "./scss/adminPanel.css";
+import "./scss/adminResponsive.css";
 
 import Header from "./components/Header.component";
 import Footer from "./components/Footer.component";
 import TokenContextProvider from "./Contexts/TokenContext";
+import AdminSideBarContextProvider from "./admin/contexts/AdminSideBar.context";
 
 export default function App({ serverData = null }) {
   return (
     <React.Fragment>
       <Header />
       <Routes>
-        {routes.map(({ path, fetchInitialData, component: C }) => (
+        {routes.map(({ path, component: C }) => (
           <Route
             key={path}
             path={path}
             element={
               <TokenContextProvider>
-                <C data={serverData} fetchInitialData={fetchInitialData} />
+                <AdminSideBarContextProvider>
+                  <C data={serverData} />
+                </AdminSideBarContextProvider>
               </TokenContextProvider>
             }
           />

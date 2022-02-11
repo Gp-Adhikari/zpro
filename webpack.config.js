@@ -1,3 +1,6 @@
+// require("babel-core/register");
+require("babel-polyfill");
+
 const path = require("path");
 const webpack = require("webpack");
 const nodeExternals = require("webpack-node-externals");
@@ -5,7 +8,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const browserConfig = {
   mode: "production",
-  entry: "./src/browser/index.js",
+  entry: ["babel-polyfill", "./src/browser/index.js"],
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
@@ -29,7 +32,7 @@ const browserConfig = {
 
 const serverConfig = {
   mode: "production",
-  entry: "./src/server/index.js",
+  entry: ["babel-polyfill", "./src/server/index.js"],
   target: "node",
   externals: [nodeExternals()],
   output: {

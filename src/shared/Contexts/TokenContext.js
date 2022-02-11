@@ -42,10 +42,7 @@ const TokenContextProvider = ({ children }) => {
 
   //get token if refresh token exists
   useEffect(() => {
-    if (
-      currentLocation === "/contact" ||
-      currentLocation.split("/").includes("careers")
-    ) {
+    if (!currentLocation.split("/").includes("admin")) {
       return 0;
     }
     const abortController = new AbortController();
