@@ -180,12 +180,10 @@ router.get("/applicant/:file", authenticateToken, (req, res) => {
 
     const sanitizedFilePath = validatePath(filePath, res);
 
-    return res
-      .status(200)
-      .download(
-        path.join(__dirname, sanitizedFilePath.path),
-        sanitizedFilePath.path
-      );
+    return res.download(
+      path.join(__dirname, sanitizedFilePath.path),
+      sanitizedFilePath.path
+    );
   } catch (error) {
     return res.status(404).json({ status: false, message: "File Not Found!" });
   }

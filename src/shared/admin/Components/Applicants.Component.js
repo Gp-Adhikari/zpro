@@ -52,6 +52,7 @@ const Applicants = () => {
   const downloadCv = (file) => {
     const filename = file.split(".pdf")[0];
 
+    console.log(filename);
     fetch(url + "/token", {
       method: "GET",
       credentials: "include",
@@ -61,6 +62,7 @@ const Applicants = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
         if (data.status) {
           const accessToken = data.accessToken;
 
@@ -71,7 +73,11 @@ const Applicants = () => {
               "xsrf-token": csrfToken,
               Authorization: `Bearer ${accessToken}`,
             },
-          });
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(data);
+            });
         }
       });
   };
