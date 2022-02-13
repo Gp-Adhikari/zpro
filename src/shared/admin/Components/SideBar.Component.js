@@ -67,7 +67,7 @@ const SideBar = () => {
             <div className="navLine"></div>
           </NavLink>
           <NavLink
-            to="/admin/carrers"
+            to="/admin/careers"
             exact="true"
             onClick={() => {
               changeSideBarState();
@@ -75,7 +75,7 @@ const SideBar = () => {
             }}
           >
             <div className="navTitle">
-              <img src={carrersIcon} alt="carrers" />
+              <img src={carrersIcon} alt="careers" />
               <p>Careers</p>
             </div>
             <div className="navLine"></div>

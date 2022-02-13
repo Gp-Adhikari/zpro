@@ -4,12 +4,9 @@ import adminLogo from "../img/admin_logo.svg";
 
 import { TokenContext } from "../../Contexts/TokenContext";
 import { useNavigate } from "react-router-dom";
+import Seo from "../../components/Seo.component";
 
 const AdminLogin = () => {
-  useEffect(() => {
-    document.title = "Admin Login";
-  }, []);
-
   const navigate = useNavigate();
 
   const { csrfToken, setToken, token, loading, setLoading } =
@@ -124,6 +121,11 @@ const AdminLogin = () => {
   } else {
     return (
       <>
+        <Seo
+          title="Admin Login"
+          description="Zpro is a company specializing in the IT sector. We are hard working, creative and passionate in the field of website design, development and software development. We also include services like logo design and website redesign. We will help you grow your business digitally.
+          Zpro is well-established and trusted IT company for high quality services with modern and custom design for reasonable cost and with high efficiency. We try our best to make our clients happy and satisfy with our creations."
+        />
         <div className="adminPanelContainer">
           <div className="adminPanelContent">
             <p className="title">Admin Panel for Zpro</p>

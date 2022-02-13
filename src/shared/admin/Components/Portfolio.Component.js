@@ -4,12 +4,9 @@ import AdminTitle from "./AdminTitle.Component";
 import { TokenContext } from "../../Contexts/TokenContext";
 
 import { url } from "../../URL";
+import Seo from "../../components/Seo.component";
 
 const Portfolio = () => {
-  useEffect(() => {
-    document.title = "Portfolio | Admin Panel - Zpro";
-  }, []);
-
   const { csrfToken, setLoading } = useContext(TokenContext);
 
   const [portfolios, setPortfolios] = useState([]);
@@ -195,6 +192,7 @@ const Portfolio = () => {
   };
   return (
     <>
+      <Seo title="Portfolio | Admin Panel - Zpro" />
       <div className="adminPortfolioContainer">
         <AdminTitle title="Portfolio" desc="Our portfolio" />
         <div className="portfolioForm">

@@ -6,12 +6,9 @@ import decreaseIcon from "../img/decreaseArrow.svg";
 
 import { TokenContext } from "../../Contexts/TokenContext";
 import { url } from "../../URL";
+import Seo from "../../components/Seo.component";
 
 const Dashboard = () => {
-  useEffect(() => {
-    document.title = "Dashboard | Admin Panel - Zpro";
-  }, []);
-
   const { token, csrfToken, setLoading } = useContext(TokenContext);
 
   const [data, setData] = useState(null);
@@ -57,6 +54,11 @@ const Dashboard = () => {
   }, [setLoading, token, csrfToken]);
   return (
     <>
+      <Seo
+        title="Dashboard | Admin Panel - Zpro"
+        description="Zpro is a company specializing in the IT sector. We are hard working, creative and passionate in the field of website design, development and software development. We also include services like logo design and website redesign. We will help you grow your business digitally.
+        Zpro is well-established and trusted IT company for high quality services with modern and custom design for reasonable cost and with high efficiency. We try our best to make our clients happy and satisfy with our creations."
+      />
       <div className="dashboardContainer">
         <AdminTitle title="Dashboard" desc="Dashboard / Analytics" />
         <div className="visits-wrapper">
