@@ -351,7 +351,9 @@ const CareersItem = ({ data }) => {
           {data[0] !== undefined ? (
             data.map((carrer, index) => (
               <div className="CarrersItem-box" key={carrer._id}>
-                <p>{carrer.title}</p>
+                <p>
+                  {carrer.title} {carrer.type === 2 ? "(Intern)" : null}
+                </p>
                 <input
                   type="button"
                   value="Apply Now"
