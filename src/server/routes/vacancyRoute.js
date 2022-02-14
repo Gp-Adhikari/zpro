@@ -2,6 +2,7 @@ const express = require("express");
 const multer = require("multer");
 const fs = require("fs");
 const path = require("path");
+const jwt = require("jsonwebtoken");
 
 const limitter = require("express-rate-limit");
 
@@ -174,20 +175,50 @@ router.get("/vacancy/applicants", authenticateToken, (req, res) => {
   }
 });
 
-router.get("/applicant/:file", authenticateToken, (req, res) => {
+router.get("/applicant/:file/:token", (req, res) => {
   try {
-    const filePath = req.params.file;
+    const token = req.params.token;
 
-    const sanitizedFilePath = validatePath(filePath, res);
+    if (token === null)
+      return res.status(401).json({ message: "Unauthorized", status: false });
 
-    return res.download(
-      path.join(__dirname, sanitizedFilePath.path),
-      sanitizedFilePath.path
-    );
+    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+      if (err)
+        return res.status(403).json({ message: "Unauthorized", status: false });
+
+      try {
+        const filePath = req.params.file;
+
+        const sanitizedFilePath = validatePath(filePath, res);
+
+        return res.download(
+          path.join(__dirname, sanitizedFilePath.path),
+          sanitizedFilePath.path
+        );
+      } catch (error) {
+        return res
+          .status(400)
+          .json({ status: false, message: "Something went wrong." });
+      }
+    });
   } catch (error) {
     return res.status(404).json({ status: false, message: "File Not Found!" });
   }
 });
+// router.get("/applicant/:file", (req, res) => {
+//   try {
+//     const filePath = req.params.file;
+
+//     const sanitizedFilePath = validatePath(filePath, res);
+
+//     return res.download(
+//       path.join(__dirname, sanitizedFilePath.path),
+//       sanitizedFilePath.path
+//     );
+//   } catch (error) {
+//     return res.status(404).json({ status: false, message: "File Not Found!" });
+//   }
+// });
 
 router.post("/vacancy/applicants", rateLimiter, (req, res) => {
   try {
