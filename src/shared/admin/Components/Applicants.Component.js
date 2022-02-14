@@ -49,33 +49,6 @@ const Applicants = () => {
     };
   }, [setLoading, token, csrfToken]);
 
-  const downloadCv = (file) => {
-    const filename = file.split(".pdf")[0];
-
-    fetch(url + "/token", {
-      method: "GET",
-      credentials: "include",
-      headers: {
-        "xsrf-token": csrfToken,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.status) {
-          const accessToken = data.accessToken;
-
-          fetch(url + "/applicant/" + filename, {
-            method: "GET",
-            credentials: "include",
-            headers: {
-              "xsrf-token": csrfToken,
-              Authorization: `Bearer ${accessToken}`,
-            },
-          });
-        }
-      });
-  };
-
   const deleteApplicants = (applicant) => {
     if (applicants.includes(applicant)) {
       setApplicants(applicants.filter((item) => item !== applicant));
@@ -157,7 +130,26 @@ const Applicants = () => {
                   <input
                     type="button"
                     value="Download CV"
-                    onClick={() => downloadCv(data.file)}
+                    onClick={() => {
+                      const filename = data.file.split(".pdf")[0];
+                      fetch(url + "/token", {
+                        method: "GET",
+                        credentials: "include",
+                        headers: {
+                          "xsrf-token": csrfToken,
+                        },
+                      })
+                        .then((res) => res.json())
+                        .then((data) => {
+                          if (data.status) {
+                            const accessToken = data.accessToken;
+
+                            window.open(
+                              `${url}/applicant/${filename}/${accessToken}`
+                            );
+                          }
+                        });
+                    }}
                   />
                 </div>
                 <input

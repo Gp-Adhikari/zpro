@@ -46,7 +46,6 @@ const TokenContextProvider = ({ children }) => {
       return 0;
     }
     const abortController = new AbortController();
-
     if (csrfToken === null) return 0;
 
     fetch(url + "/token", {
@@ -64,11 +63,12 @@ const TokenContextProvider = ({ children }) => {
           setLoading(false);
           return setToken(data.accessToken);
         } else {
+          setLoading(false);
           setToken("");
           navigate("/admin");
         }
       });
-    setLoading(false);
+    // setLoading(false);
 
     return () => abortController.abort();
   }, [csrfToken, token, navigate, currentLocation]);
