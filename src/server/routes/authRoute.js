@@ -75,7 +75,7 @@ router.post("/login", async (req, res) => {
               res.cookie("token", data.refreshToken, {
                 maxAge: 1000 * 60 * 60 * 24 * 30,
                 httpOnly: true,
-                secure: false,
+                secure: true,
               });
 
               return res.status(200).json({
@@ -93,7 +93,7 @@ router.post("/login", async (req, res) => {
               res.cookie("token", refreshToken, {
                 maxAge: 1000 * 60 * 60 * 24 * 30,
                 httpOnly: true,
-                secure: false,
+                secure: true,
               });
 
               return res.status(200).json({

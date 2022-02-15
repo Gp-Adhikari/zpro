@@ -11,13 +11,17 @@ import { TokenContext } from "../../Contexts/TokenContext";
 import Applicants from "../Components/Applicants.Component";
 
 const AdminPanel = () => {
-  const { token, loading } = useContext(TokenContext);
+  const { token, loading, setLoading, loadingChecker } =
+    useContext(TokenContext);
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (token === null || token === undefined || token === "")
-      return navigate("/admin");
+    if (token !== null && token !== undefined && token !== "") {
+      return;
+    } else {
+      setLoading(true);
+    }
   }, [token, navigate]);
 
   if (loading) {
