@@ -1,3 +1,9 @@
+@media screen and (max-width: 1335px) {
+  .aboutUs-Zpro {
+    margin: 0 1.5rem;
+  }
+}
+
 @media screen and (max-width: 1450px) {
   header {
     padding: 0.5rem 2rem;
@@ -20,15 +26,6 @@
   .applyNowSection .applyNowContainer {
     padding: 3rem 2rem;
   }
-  .ourTeamContainer {
-    padding: 0 2rem 2rem 2rem;
-    -ms-grid-columns: 1fr 1fr 1fr;
-        grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 1.5rem;
-  }
-  .ourTeamContainer .ourTeamCard img {
-    width: 90%;
-  }
   .whatWeDoContainer {
     padding: 3rem 2rem;
     background-color: #111325;
@@ -45,6 +42,13 @@
   }
   .introductionContainer .introductionPart {
     margin: 0 2rem;
+  }
+  .ourTeamContainer {
+    padding: 0 2rem;
+    grid-gap: 1.7rem;
+  }
+  .ourTeamContainer .ourTeamCard img {
+    height: 330px;
   }
   .CarrersContainer .CarrersItem-wrapper {
     padding: 0 2rem 2rem 2rem;
@@ -115,6 +119,12 @@
     text-align: center;
     line-height: 4rem;
   }
+  .ourTeamContainer {
+    padding: 0 2rem 2rem 2rem;
+    -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1.5rem;
+  }
   .contactUsContainer .contactUsContent {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
@@ -149,15 +159,12 @@
   }
 }
 
-@media screen and (max-width: 1335px) {
-  .aboutUs-Zpro {
-    margin: 0 1.5rem;
-  }
-}
-
 @media screen and (max-width: 900px) {
   .statsContainer {
     font-size: 0.8rem;
+  }
+  .ourTeamContainer .ourTeamCard img {
+    height: 300px;
   }
   .portfolio .portfolioContainer {
     -ms-grid-columns: 1fr 1fr;
@@ -197,6 +204,9 @@
 }
 
 @media screen and (max-width: 800px) {
+  .ourTeamContainer .ourTeamCard img {
+    height: 245px;
+  }
   .introductionContainer .introductionPart {
     position: relative;
   }
@@ -401,6 +411,9 @@
     -ms-grid-columns: 1fr 1fr;
         grid-template-columns: 1fr 1fr;
   }
+  .ourTeamContainer .ourTeamCard img {
+    height: 270px;
+  }
   .heroContainer .heroText .Text {
     font-size: 2.5rem;
   }
@@ -456,6 +469,9 @@
   .ourTeamContainer {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
+  }
+  .ourTeamContainer .ourTeamCard img {
+    height: 330px;
   }
   .ourTeamContainer .ourTeamCard .ourTeamCardDesc {
     padding: 5rem 2rem 2rem 2rem;
