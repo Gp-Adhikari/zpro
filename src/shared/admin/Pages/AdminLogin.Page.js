@@ -9,9 +9,8 @@ import Seo from "../../components/Seo.component";
 const AdminLogin = () => {
   const navigate = useNavigate();
 
-  const { csrfToken, setToken, token, loading, setLoading } =
+  const { csrfToken, setToken, token, loading, setLoading, loadingChecker } =
     useContext(TokenContext);
-
   const emailRef = useRef(null);
   const otpRef = useRef(null);
 
@@ -23,8 +22,13 @@ const AdminLogin = () => {
 
   //check if token exists
   useEffect(() => {
-    if (token !== null && token !== undefined && token !== "") {
-      navigate("/admin/dashboard");
+    if (
+      token !== null &&
+      token !== undefined &&
+      token !== "" &&
+      loadingChecker === true
+    ) {
+      return navigate("/admin/dashboard");
     }
   }, [token]);
 

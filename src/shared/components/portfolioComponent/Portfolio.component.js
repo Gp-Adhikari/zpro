@@ -31,41 +31,6 @@ const Portfolio = () => {
     return () => abortController.abort();
   }, []);
 
-  //all route handlers
-  const allRoute = portfolios.map((portfolio) => (
-    <PortfolioImage
-      key={portfolio._id}
-      img={`${url}/photo/${portfolio.img.split(".jpeg")[0]}`}
-    />
-  ));
-  //web design route handlers
-  const webDesignRoute = portfolios.map((portfolio) =>
-    parseInt(portfolio.type) === 1 ? (
-      <PortfolioImage
-        key={portfolio._id}
-        img={`${url}/photo/${portfolio.img.split(".jpeg")[0]}`}
-      />
-    ) : null
-  );
-  //logo design route handlers
-  const logoDesignRoute = portfolios.map((portfolio) =>
-    parseInt(portfolio.type) === 3 ? (
-      <PortfolioImage
-        key={portfolio._id}
-        img={`${url}/photo/${portfolio.img.split(".jpeg")[0]}`}
-      />
-    ) : null
-  );
-  //mockup route handlers
-  const mockupRoute = portfolios.map((portfolio) =>
-    parseInt(portfolio.type) === 2 ? (
-      <PortfolioImage
-        key={portfolio._id}
-        img={`${url}/photo/${portfolio.img.split(".jpeg")[0]}`}
-      />
-    ) : null
-  );
-
   return (
     <>
       <Seo
@@ -119,28 +84,46 @@ const Portfolio = () => {
         ) : (
           <div className="portfolioContainer">
             {route === "" && portfolios[0] !== undefined ? (
-              allRoute[0] !== null ? (
-                allRoute
-              ) : (
-                <p className="not-available">No Data Found.</p>
-              )
+              portfolios.map((portfolio) => (
+                <PortfolioImage
+                  key={portfolio._id}
+                  img={`${url}/photo/${portfolio.img.split(".jpeg")[0]}`}
+                  title={portfolio.name}
+                  link={portfolio.link}
+                />
+              ))
             ) : route === "web" && portfolios[0] !== undefined ? (
-              webDesignRoute[0] !== null ? (
-                webDesignRoute
-              ) : (
-                <p className="not-available">No Data Found.</p>
+              portfolios.map((portfolio) =>
+                parseInt(portfolio.type) === 1 ? (
+                  <PortfolioImage
+                    key={portfolio._id}
+                    img={`${url}/photo/${portfolio.img.split(".jpeg")[0]}`}
+                    title={portfolio.name}
+                    link={portfolio.link}
+                  />
+                ) : null
               )
             ) : route === "logo" && portfolios[0] !== undefined ? (
-              logoDesignRoute[0] !== null ? (
-                logoDesignRoute
-              ) : (
-                <p className="not-available">No Data Found.</p>
+              portfolios.map((portfolio) =>
+                parseInt(portfolio.type) === 3 ? (
+                  <PortfolioImage
+                    key={portfolio._id}
+                    img={`${url}/photo/${portfolio.img.split(".jpeg")[0]}`}
+                    title={portfolio.name}
+                    link={portfolio.link}
+                  />
+                ) : null
               )
             ) : route === "mockup" && portfolios[0] !== undefined ? (
-              mockupRoute[0] !== null ? (
-                mockupRoute
-              ) : (
-                <p className="not-available">No Data Found.</p>
+              portfolios.map((portfolio) =>
+                parseInt(portfolio.type) === 2 ? (
+                  <PortfolioImage
+                    key={portfolio._id}
+                    img={`${url}/photo/${portfolio.img.split(".jpeg")[0]}`}
+                    title={portfolio.name}
+                    link={portfolio.link}
+                  />
+                ) : null
               )
             ) : (
               <p className="not-available">No Data Found.</p>

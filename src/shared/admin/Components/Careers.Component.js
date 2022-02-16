@@ -17,6 +17,13 @@ const Careers = () => {
   const [salary, setSalary] = useState("");
   const [jobType, setJobType] = useState(1);
 
+  const [isJobTitleEmpty, setIsJobTitleEmpty] = useState(false);
+  const [isCorporateTItleEmpty, setIsCorporateTItleEmpty] = useState(false);
+  const [isNumberOfVacanciesEmpty, setIsNumberOfVacanciesEmpty] =
+    useState(false);
+  const [isRequirementsEmpty, setIsRequirementsEmpty] = useState(false);
+  const [isSalaryEmpty, setIsSalaryEmpty] = useState(false);
+
   //select options
   const SelectBox = ({ children, onChange, value }) => (
     <select onChange={onChange} value={value}>
@@ -84,20 +91,30 @@ const Careers = () => {
     salary,
     jobType
   ) => {
-    if (
-      jobTitle === "" ||
-      !jobTitle ||
-      corporateTItle === "" ||
-      !corporateTItle ||
-      numberOfVacancies === "" ||
-      !numberOfVacancies ||
-      requirements === "" ||
-      !requirements ||
-      salary === "" ||
-      !salary
-    ) {
-      return 0;
+    if (jobTitle === "") {
+      return setIsJobTitleEmpty(true);
     }
+    setIsJobTitleEmpty(false);
+
+    if (corporateTItle === "") {
+      return setIsCorporateTItleEmpty(true);
+    }
+    setIsCorporateTItleEmpty(false);
+
+    if (numberOfVacancies === "") {
+      return setIsNumberOfVacanciesEmpty(true);
+    }
+    setIsNumberOfVacanciesEmpty(false);
+
+    if (requirements === "") {
+      return setIsRequirementsEmpty(true);
+    }
+    setIsRequirementsEmpty(false);
+
+    if (salary === "") {
+      return setIsSalaryEmpty(true);
+    }
+    setIsSalaryEmpty(false);
 
     setLoading(true);
 
@@ -213,6 +230,11 @@ const Careers = () => {
                 value={jobTitle}
                 onChange={(e) => setJobTitle(e.target.value)}
               />
+              {isJobTitleEmpty ? (
+                <pre className="redMessage">
+                  *Invalid job title. Please enter a valid job title.
+                </pre>
+              ) : null}
             </div>
             <div className="formInput">
               <p>Corporate Title</p>
@@ -221,6 +243,12 @@ const Careers = () => {
                 value={corporateTItle}
                 onChange={(e) => setCorporateTItle(e.target.value)}
               />
+              {isCorporateTItleEmpty ? (
+                <pre className="redMessage">
+                  *Invalid corporate title. Please enter a valid corporate
+                  title.
+                </pre>
+              ) : null}
             </div>
             <div className="formInput">
               <p>No. of Vacancy (In Number)</p>
@@ -229,6 +257,12 @@ const Careers = () => {
                 value={numberOfVacancies}
                 onChange={(e) => setNumberOfVacancies(e.target.value)}
               />
+              {isNumberOfVacanciesEmpty ? (
+                <pre className="redMessage">
+                  *Invalid number of vacancy. Please enter a valid number of
+                  vacancy.
+                </pre>
+              ) : null}
             </div>
             <div className="formInput">
               <p>Requirements (Separate lines using \)</p>
@@ -238,6 +272,11 @@ const Careers = () => {
                 onChange={(e) => setRequirements(e.target.value)}
                 rows="10"
               ></textarea>
+              {isRequirementsEmpty ? (
+                <pre className="redMessage">
+                  *Invalid requirements. Please enter a valid requirements.
+                </pre>
+              ) : null}
             </div>
             <div className="formInput">
               <p>Salary</p>
@@ -246,6 +285,11 @@ const Careers = () => {
                 value={salary}
                 onChange={(e) => setSalary(e.target.value)}
               />
+              {isSalaryEmpty ? (
+                <pre className="redMessage">
+                  *Invalid salary. Please enter a valid salary.
+                </pre>
+              ) : null}
             </div>
             <div className="formInput">
               <p>Job Type</p>

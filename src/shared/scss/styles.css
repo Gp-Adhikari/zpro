@@ -732,13 +732,15 @@ header .header-wrapper nav.nav-shrink {
 
 .ourTeamContainer .ourTeamCard img {
   z-index: 11;
-  width: 90%;
+  width: 265px;
+  height: 347px;
+  border-radius: 20px;
 }
 
 .ourTeamContainer .ourTeamCard .ourTeamCardDesc {
   background-color: #111325;
   border-radius: 20px;
-  padding: 4rem 1rem 1rem 1rem;
+  padding: 4rem 1rem 1rem 1.5rem;
   margin-top: -3rem;
   width: 100%;
 }
@@ -786,9 +788,16 @@ header .header-wrapper nav.nav-shrink {
 }
 
 .portfolio .portfolio-image-imgCard img {
-  width: 100%;
-  height: 100%;
   border-radius: 10%;
+}
+
+.portfolio .portfolio-image-imgCard .portfolioDesc {
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+.portfolio .portfolio-image-imgCard .portfolioDesc h4 {
+  font-size: 1.2rem;
 }
 
 .portfolio .portfolioContainer {

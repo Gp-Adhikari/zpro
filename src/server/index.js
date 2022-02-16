@@ -69,7 +69,7 @@ app.use(express.json({ limit: "50mb" }));
 app.use(cookieParser());
 
 //csrf protection
-app.use(csrf({ cookie: { httpOnly: true, secure: false } }));
+app.use(csrf({ cookie: { httpOnly: true, secure: true } }));
 
 //compression
 app.use(compression());

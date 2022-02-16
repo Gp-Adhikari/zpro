@@ -621,6 +621,7 @@
 
 .carrersContainer .carrersForm form .formInput input,
 .carrersContainer .carrersForm form .formInput textarea {
+  background-color: #fff;
   max-width: 400px;
   width: 100%;
   padding: 0.4rem 0.5rem;

@@ -17,6 +17,11 @@ const Portfolio = () => {
   const [portfolioLink, setPortfolioLink] = useState("");
   const [portfolioType, setPortfolioType] = useState(1);
 
+  const [isPortfolioNameEmpty, setIsPortfolioNameEmpty] = useState(false);
+  const [isPortfolioDescEmpty, setIsPortfolioDescEmpty] = useState(false);
+  const [isPortfolioImgEmpty, setIsPortfolioImgEmpty] = useState(false);
+  const [isPortfolioLinkEmpty, setIsPortfolioLinkEmpty] = useState(false);
+
   //select options
   const SelectBox = ({ children, onChange, value }) => (
     <select onChange={onChange} value={value}>
@@ -43,18 +48,25 @@ const Portfolio = () => {
     portfolioType,
     portfolioImg
   ) => {
-    if (
-      portfolioName === "" ||
-      !portfolioName ||
-      portfolioDesc === "" ||
-      !portfolioDesc ||
-      portfolioLink === "" ||
-      !portfolioLink ||
-      portfolioImg === null ||
-      portfolioImg.name === undefined
-    ) {
-      return 0;
+    if (portfolioName === "") {
+      return setIsPortfolioNameEmpty(true);
     }
+    setIsPortfolioNameEmpty(false);
+
+    if (portfolioDesc === "") {
+      return setIsPortfolioDescEmpty(true);
+    }
+    setIsPortfolioDescEmpty(false);
+
+    if (portfolioLink === "") {
+      return setIsPortfolioLinkEmpty(true);
+    }
+    setIsPortfolioLinkEmpty(false);
+
+    if (portfolioImg === null) {
+      return setIsPortfolioImgEmpty(true);
+    }
+    setIsPortfolioImgEmpty(false);
 
     let formData = new FormData();
 
@@ -205,6 +217,11 @@ const Portfolio = () => {
                 value={portfolioName}
                 onChange={(e) => setPortfolioName(e.target.value)}
               />
+              {isPortfolioNameEmpty ? (
+                <pre className="redMessage">
+                  *Invalid name. Please enter a valid name.
+                </pre>
+              ) : null}
             </div>
             <div className="formInput">
               <p>Description</p>
@@ -213,6 +230,11 @@ const Portfolio = () => {
                 value={portfolioDesc}
                 onChange={(e) => setPortfolioDesc(e.target.value)}
               />
+              {isPortfolioDescEmpty ? (
+                <pre className="redMessage">
+                  *Invalid description. Please enter a valid description.
+                </pre>
+              ) : null}
             </div>
             <div className="formInput">
               <p>Website Link</p>
@@ -221,6 +243,11 @@ const Portfolio = () => {
                 value={portfolioLink}
                 onChange={(e) => setPortfolioLink(e.target.value)}
               />
+              {isPortfolioLinkEmpty ? (
+                <pre className="redMessage">
+                  *Invalid link. Please enter a valid link.
+                </pre>
+              ) : null}
             </div>
             <div className="formInput">
               <p>Type</p>
@@ -252,6 +279,11 @@ const Portfolio = () => {
                     : "No Image Selected."}
                 </h4>
               </div>
+              {isPortfolioImgEmpty ? (
+                <pre className="redMessage">
+                  *Invalid image. Please select a valid image.
+                </pre>
+              ) : null}
             </div>
             <input
               type="button"

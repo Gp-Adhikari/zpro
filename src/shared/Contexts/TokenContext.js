@@ -13,6 +13,8 @@ const TokenContextProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [admin, setAdmin] = useState("");
 
+  const [loadingChecker, setLoadingChecker] = useState(false);
+
   const navigate = useNavigate();
 
   //get csrf token
@@ -61,9 +63,11 @@ const TokenContextProvider = ({ children }) => {
         if (data.status) {
           setAdmin(data.admin);
           setLoading(false);
+          setLoadingChecker(true);
           return setToken(data.accessToken);
         } else {
           setLoading(false);
+          setLoadingChecker(true);
           setToken("");
           navigate("/admin");
         }
@@ -84,6 +88,8 @@ const TokenContextProvider = ({ children }) => {
           setLoading,
           setCsrfToken,
           admin,
+          setLoadingChecker,
+          loadingChecker,
         }}
       >
         {children}
