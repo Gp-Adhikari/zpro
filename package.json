@@ -60,10 +60,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/uidotdev/react-router-server-rendering.git"
+    "type": "",
+    "url": ""
   },
-  "author": "Tyler McGinnis",
+  "author": "",
   "license": "MIT",
-  "homepage": "https://github.com/uidotdev/react-router-server-rendering#readme"
+  "homepage": ""
 }
