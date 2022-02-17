@@ -782,13 +782,9 @@ header .header-wrapper nav.nav-shrink {
   border-bottom: 2px solid #f6a01f;
 }
 
-.portfolio .portfolio-image-imgCard {
-  width: 100%;
-  height: 100%;
-}
-
 .portfolio .portfolio-image-imgCard img {
   border-radius: 10%;
+  width: 100%;
 }
 
 .portfolio .portfolio-image-imgCard .portfolioDesc {
