@@ -1,8 +1,10 @@
 import React from "react";
 import gpPhoto from "../img/gp.png";
-import subarnPhoto from "../img/subarn.png";
 import birendraPhoto from "../img/birendra.png";
 import bishalPhoto from "../img/bishal.png";
+import archanaPhoto from "../img/archana.png";
+import parbatiPhoto from "../img/parbati.png";
+import kabitaPhoto from "../img/kabita.png";
 import OurTeamCard from "./OurTeamCard.component";
 
 const OurTeam = () => {
@@ -11,13 +13,23 @@ const OurTeam = () => {
       <div className="ourTeamContainer">
         <OurTeamCard
           name="GP Adhikari"
-          position="Founder/CEO &amp; Full Stack Developer"
+          position="CEO / Founder / Senior Back-End Developer / Designer"
           img={gpPhoto}
         />
         <OurTeamCard
           name="Birendra Dewal"
-          position="FrontEnd Developer"
+          position="Instructor / Senior Developer"
           img={birendraPhoto}
+        />
+        <OurTeamCard
+          name="Archana Makaju"
+          position="FrontEnd Developer"
+          img={archanaPhoto}
+        />
+        <OurTeamCard
+          name="Parbati Manandhar"
+          position="FrontEnd Developer"
+          img={parbatiPhoto}
         />
         <OurTeamCard
           name="Bishal Sukubhatu"
@@ -25,14 +37,9 @@ const OurTeam = () => {
           img={bishalPhoto}
         />
         <OurTeamCard
-          name="GP Adhikari"
-          position="Founder &amp; CEO"
-          img={subarnPhoto}
-        />
-        <OurTeamCard
-          name="GP Adhikari"
-          position="Founder &amp; CEO"
-          img={subarnPhoto}
+          name="Kabita Buyo"
+          position="FrontEnd Developer"
+          img={kabitaPhoto}
         />
       </div>
     </>

@@ -1,10 +1,5 @@
 @import "./colors";
 
-@media screen and (max-width: 1335px) {
-  .aboutUs-Zpro {
-    margin: 0 1.5rem;
-  }
-}
 @media screen and (max-width: 1450px) {
   header {
     padding: 0.5rem 2rem;
@@ -53,45 +48,52 @@
   .ourTeamContainer {
     padding: 0 2rem;
     grid-gap: 1.7rem;
-    .ourTeamCard {
-      img {
-        height: 330px;
-      }
-    }
   }
-  .CarrersContainer {
-    .CarrersItem-wrapper {
-      padding: 0 2rem 2rem 2rem;
-    }
+}
+.CarrersContainer {
+  .CarrersItem-wrapper {
+    padding: 0 2rem 2rem 2rem;
   }
-  .statsContainer {
-    margin: 2rem;
-  }
-  .portfolio {
-    padding: 0 2rem;
+}
+.statsContainer {
+  margin: 2rem;
+}
+.portfolio {
+  padding: 0 2rem;
 
-    .aboutUs-Zpro {
-      margin: 0 1.5rem;
-    }
-  }
-  .RecentProject-Section {
+  .aboutUs-Zpro {
     margin: 0 1.5rem;
   }
-  .contactUsContainer {
+}
+.RecentProject-Section {
+  margin: 0 1.5rem;
+}
+.contactUsContainer {
+  padding: 0 2rem;
+  .contactUsContent {
+    padding: 2rem 0;
+  }
+}
+footer {
+  .topFooter {
     padding: 0 2rem;
-    .contactUsContent {
-      padding: 2rem 0;
+    .footerContainer {
+      padding: 1rem 0;
     }
   }
-  footer {
-    .topFooter {
-      padding: 0 2rem;
-      .footerContainer {
-        padding: 1rem 0;
+  .bottomFooter {
+    margin: 0 2rem;
+  }
+}
+@media screen and (max-width: 1335px) {
+  .aboutUs-Zpro {
+    margin: 0 1.5rem;
+    .ourTeamContainer {
+      .ourTeamCard {
+        img {
+          height: 330px;
+        }
       }
-    }
-    .bottomFooter {
-      margin: 0 2rem;
     }
   }
 }
@@ -128,6 +130,11 @@
     padding: 0 2rem 2rem 2rem;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 1.5rem;
+    .ourTeamCard {
+      img {
+        height: 310px;
+      }
+    }
   }
   .contactUsContainer {
     .contactUsContent {
@@ -169,7 +176,7 @@
   .ourTeamContainer {
     .ourTeamCard {
       img {
-        height: 300px;
+        height: 295px;
       }
     }
   }
@@ -234,7 +241,7 @@
   .ourTeamContainer {
     .ourTeamCard {
       img {
-        height: 245px;
+        height: 215px;
       }
     }
   }
@@ -298,7 +305,6 @@
         width: 100%;
         height: 100vh;
         overflow-x: hidden;
-        // width: 100%;
       }
       .mob-nav {
         position: absolute;
@@ -473,7 +479,7 @@
     grid-template-columns: 1fr 1fr;
     .ourTeamCard {
       img {
-        height: 270px;
+        height: 245px;
       }
     }
   }
@@ -544,7 +550,7 @@
     grid-template-columns: 1fr;
     .ourTeamCard {
       img {
-        height: 330px;
+        height: 325px;
       }
       .ourTeamCardDesc {
         padding: 5rem 2rem 2rem 2rem;
