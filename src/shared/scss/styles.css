@@ -89,6 +89,11 @@ body {
   background: #101541;
   -webkit-filter: blur(500px);
           filter: blur(500px);
+  z-index: -1;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 header {

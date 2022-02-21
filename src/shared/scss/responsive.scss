@@ -49,40 +49,40 @@
     padding: 0 2rem;
     grid-gap: 1.7rem;
   }
-}
-.CarrersContainer {
-  .CarrersItem-wrapper {
-    padding: 0 2rem 2rem 2rem;
-  }
-}
-.statsContainer {
-  margin: 2rem;
-}
-.portfolio {
-  padding: 0 2rem;
-
-  .aboutUs-Zpro {
-    margin: 0 1.5rem;
-  }
-}
-.RecentProject-Section {
-  margin: 0 1.5rem;
-}
-.contactUsContainer {
-  padding: 0 2rem;
-  .contactUsContent {
-    padding: 2rem 0;
-  }
-}
-footer {
-  .topFooter {
-    padding: 0 2rem;
-    .footerContainer {
-      padding: 1rem 0;
+  .CarrersContainer {
+    .CarrersItem-wrapper {
+      padding: 0 2rem 2rem 2rem;
     }
   }
-  .bottomFooter {
-    margin: 0 2rem;
+  .statsContainer {
+    margin: 2rem;
+  }
+  .portfolio {
+    padding: 0 2rem;
+
+    .aboutUs-Zpro {
+      margin: 0 1.5rem;
+    }
+  }
+  .RecentProject-Section {
+    margin: 0 1.5rem;
+  }
+  .contactUsContainer {
+    padding: 0 2rem;
+    .contactUsContent {
+      padding: 2rem 0;
+    }
+  }
+  footer {
+    .topFooter {
+      padding: 0 2rem;
+      .footerContainer {
+        padding: 1rem 0;
+      }
+    }
+    .bottomFooter {
+      margin: 0 2rem;
+    }
   }
 }
 @media screen and (max-width: 1335px) {
