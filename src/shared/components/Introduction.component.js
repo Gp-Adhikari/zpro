@@ -14,14 +14,14 @@ const Introduction = () => {
           <div className="introductionContent">
             <h1>Introduction</h1>
             <p>
-              Zpro is a company specializing in the IT sector. We are hard
+              Zprofs is a company specializing in the IT sector. We are hard
               working, creative and passionate in the field of website design,
               development and software development. We also include services
               like logo design and website redesign. We will help you grow your
               business digitally.
             </p>
             <p>
-              Zpro is well-established and trusted IT company for high quality
+              Zprofs is well-established and trusted IT company for high quality
               services with modern and custom design for reasonable cost and
               with high efficiency. We try our best to make our clients happy
               and satisfy with our creations.

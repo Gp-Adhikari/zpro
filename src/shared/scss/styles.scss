@@ -84,6 +84,8 @@ body {
   right: 0;
   background: #101541;
   filter: blur(500px);
+  z-index: -1;
+  user-select: none;
 }
 
 //header
@@ -546,16 +548,17 @@ header {
     align-items: center;
     img {
       z-index: 11;
-      width: 265px;
-      height: 347px;
-      border-radius: 20px;
+      width: 90%;
     }
     .ourTeamCardDesc {
       background-color: #111325;
       border-radius: 20px;
-      padding: 4rem 1rem 1rem 1.5rem;
+      padding: 5rem 1rem 2rem 1.5rem;
       margin-top: -3rem;
       width: 100%;
+      h3 {
+        margin-bottom: 0.5rem;
+      }
     }
   }
 }
@@ -581,7 +584,6 @@ header {
         cursor: pointer;
         transition: 0.3s ease;
         border-bottom: 2px solid transparent;
-
         &.active {
           color: $main-color;
           border-bottom: 2px solid $main-color;
@@ -591,11 +593,9 @@ header {
   }
 
   .portfolio-image-imgCard {
-    width: 100%;
-    height: 100%;
-
     img {
       border-radius: 10%;
+      width: 100%;
     }
     .portfolioDesc {
       margin-top: 0.5rem;

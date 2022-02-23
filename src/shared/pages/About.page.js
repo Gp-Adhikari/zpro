@@ -9,9 +9,8 @@ const About = () => {
   return (
     <>
       <Seo
-        title="About - Zpro"
-        description="Zpro is a company specializing in the IT sector. We are hard working, creative and passionate in the field of website design, development and software development. We also include services like logo design and website redesign. We will help you grow your business digitally.
-      Zpro is well-established and trusted IT company for high quality services with modern and custom design for reasonable cost and with high efficiency. We try our best to make our clients happy and satisfy with our creations."
+        title="About - Zprofs"
+        description="We provide creative, secure and bug-free websites for you at reasonable cost. Our company has reliableexperts, such IT Engineers, Developers, Designers, and more. We work hard for best quality designs. We are your best partner and will help with brilliant, passionate and hard-working team members. We provide with first class service and deliver quality outputs. We work to the highest of standards in providing the best quality."
       />
       <Banner text1="About Us" />
       <AboutUs />

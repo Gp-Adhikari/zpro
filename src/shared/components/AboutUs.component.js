@@ -5,9 +5,9 @@ const AboutUs = () => {
     <>
       <div className="aboutUs-Zpro">
         <div className="Zpro-intro">
-          <h2>Zpro ?</h2>
+          <h2>Zprofs ?</h2>
           <p>
-            Zpro is well-established and <code>trusted IT company</code> for
+            Zprofs is well-established and <code>trusted IT company</code> for
             high quality services with modern and custom design for reasonable
             cost and with <code>high efficiency</code>. We try our best to make
             our clients happy and satisfy with our creations.

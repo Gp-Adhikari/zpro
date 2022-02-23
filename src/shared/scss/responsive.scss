@@ -1,4 +1,5 @@
 @import "./colors";
+
 @media screen and (max-width: 1450px) {
   header {
     padding: 0.5rem 2rem;
@@ -27,16 +28,6 @@
       padding: 3rem 2rem;
     }
   }
-  .ourTeamContainer {
-    padding: 0 2rem 2rem 2rem;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 1.5rem;
-    .ourTeamCard {
-      img {
-        width: 90%;
-      }
-    }
-  }
   .whatWeDoContainer {
     padding: 3rem 2rem;
     background-color: #111325;
@@ -53,6 +44,10 @@
     .introductionPart {
       margin: 0 2rem;
     }
+  }
+  .ourTeamContainer {
+    padding: 0 2rem;
+    grid-gap: 1.7rem;
   }
   .CarrersContainer {
     .CarrersItem-wrapper {
@@ -90,6 +85,18 @@
     }
   }
 }
+@media screen and (max-width: 1335px) {
+  .aboutUs-Zpro {
+    margin: 0 1.5rem;
+    .ourTeamContainer {
+      .ourTeamCard {
+        img {
+          height: 330px;
+        }
+      }
+    }
+  }
+}
 @media screen and (max-width: 1100px) {
   .Title {
     padding: 2rem 0;
@@ -116,6 +123,16 @@
           text-align: center;
           line-height: 4rem;
         }
+      }
+    }
+  }
+  .ourTeamContainer {
+    padding: 0 2rem 2rem 2rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1.5rem;
+    .ourTeamCard {
+      img {
+        height: 310px;
       }
     }
   }
@@ -150,16 +167,20 @@
     }
   }
 }
-@media screen and (max-width: 1335px) {
-  .aboutUs-Zpro {
-    margin: 0 1.5rem;
-  }
-}
 
 @media screen and (max-width: 900px) {
   .statsContainer {
     font-size: 0.8rem;
   }
+
+  .ourTeamContainer {
+    .ourTeamCard {
+      img {
+        height: 295px;
+      }
+    }
+  }
+
   .portfolio {
     .portfolioContainer {
       grid-template-columns: 1fr 1fr;
@@ -217,6 +238,13 @@
   }
 }
 @media screen and (max-width: 800px) {
+  .ourTeamContainer {
+    .ourTeamCard {
+      img {
+        height: 215px;
+      }
+    }
+  }
   .introductionContainer {
     .introductionPart {
       position: relative;
@@ -226,6 +254,7 @@
           width: 100%;
         }
       }
+
       .light-Bulb {
         position: absolute;
         background-color: #1113251c;
@@ -276,7 +305,6 @@
         width: 100%;
         height: 100vh;
         overflow-x: hidden;
-        // width: 100%;
       }
       .mob-nav {
         position: absolute;
@@ -449,6 +477,11 @@
 @media screen and (max-width: 650px) {
   .ourTeamContainer {
     grid-template-columns: 1fr 1fr;
+    .ourTeamCard {
+      img {
+        height: 245px;
+      }
+    }
   }
   .heroContainer {
     .heroText {
@@ -516,6 +549,9 @@
   .ourTeamContainer {
     grid-template-columns: 1fr;
     .ourTeamCard {
+      img {
+        height: 325px;
+      }
       .ourTeamCardDesc {
         padding: 5rem 2rem 2rem 2rem;
       }

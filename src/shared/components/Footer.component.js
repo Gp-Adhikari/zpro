@@ -73,7 +73,7 @@ const Footer = () => {
         </div>
         <div className="bottomFooter">
           <p className="copyRightText">
-            Copyright &copy; 2021 Zpro . All Rights Reserved.
+            Copyright &copy; 2021 Zprofs . All Rights Reserved.
           </p>
           <div className="socialMediaIcons">
             <div

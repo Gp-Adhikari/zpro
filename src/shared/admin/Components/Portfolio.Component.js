@@ -204,7 +204,7 @@ const Portfolio = () => {
   };
   return (
     <>
-      <Seo title="Portfolio | Admin Panel - Zpro" />
+      <Seo title="Portfolio | Admin Panel - Zprofs" />
       <div className="adminPortfolioContainer">
         <AdminTitle title="Portfolio" desc="Our portfolio" />
         <div className="portfolioForm">
