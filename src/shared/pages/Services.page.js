@@ -9,11 +9,10 @@ const Services = () => {
   return (
     <>
       <Seo
-        title="Services - Zpro"
-        description="Zpro is a company specializing in the IT sector. We are hard working, creative and passionate in the field of website design, development and software development. We also include services like logo design and website redesign. We will help you grow your business digitally.
-      Zpro is well-established and trusted IT company for high quality services with modern and custom design for reasonable cost and with high efficiency. We try our best to make our clients happy and satisfy with our creations."
+        title="Services - Zprofs"
+        description="Our Mission is to design and customize your business platform. We provide services like web development, domain hosting, seo, content writing, web redesign and also logo design."
       />
-      <Banner text1="Services At" text2="Zpro" />
+      <Banner text1="Services At" text2="Zprofs" />
       <Title TitleText="What We Do?" />
       <WhatWeDo />
       <Title TitleText="What We Use?" />

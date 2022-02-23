@@ -22,6 +22,11 @@ const OurTeam = () => {
           img={birendraPhoto}
         />
         <OurTeamCard
+          name="Bishal Sukubhatu"
+          position="FrontEnd Developer"
+          img={bishalPhoto}
+        />
+        <OurTeamCard
           name="Archana Makaju"
           position="FrontEnd Developer"
           img={archanaPhoto}
@@ -30,11 +35,6 @@ const OurTeam = () => {
           name="Parbati Manandhar"
           position="FrontEnd Developer"
           img={parbatiPhoto}
-        />
-        <OurTeamCard
-          name="Bishal Sukubhatu"
-          position="FrontEnd Developer"
-          img={bishalPhoto}
         />
         <OurTeamCard
           name="Kabita Buyo"
