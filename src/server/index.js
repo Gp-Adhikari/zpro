@@ -1,18 +1,18 @@
-require("dotenv").config({ path: "./.env" });
+require("dotenv").config();
 import express from "express";
-const https = require("node:https");
+// const https = require("node:https");
 import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
 import helmet from "helmet";
-import cors from "cors";
+// import cors from "cors";
 
 const compression = require("compression");
 const csrf = require("csurf");
 
-const fs = require("node:fs");
+// const fs = require("node:fs");
 
-const cluster = require("cluster");
-import os from "node:os";
+// const cluster = require("cluster");
+// import os from "node:os";
 
 import * as React from "react";
 import ReactDOM from "react-dom/server";
@@ -35,18 +35,18 @@ mongoose.connection.on("connected", () => {
 
 //on error
 mongoose.connection.on("error", () => {
-  console.log("Error connecting to database!");
+  // console.log("Error connecting to database!");
 });
 
 const app = express();
 
-const sslServer = https.createServer(
-  {
-    key: fs.readFileSync("./cert/key.pem"),
-    cert: fs.readFileSync("./cert/cert.pem"),
-  },
-  app
-);
+// const sslServer = https.createServer(
+//   {
+//     key: fs.readFileSync("./cert/key.pem"),
+//     cert: fs.readFileSync("./cert/cert.pem"),
+//   },
+//   app
+// );
 
 // app.use(cors());
 
@@ -79,7 +79,7 @@ app.get("/api/csrf", (req, res) => {
   return res.status(200).send({ status: true, csrfToken: req.csrfToken() });
 });
 
-//require models
+// //require models
 require("./models/RefreshToken");
 require("./models/Portfolio");
 require("./models/VacancyAnnouncement");
@@ -104,7 +104,7 @@ app.use("/api", portfolioRoute);
 app.use("/api", vacancyRoute);
 app.use("/api", pageVisitsRoute);
 
-///////////////////////////////////////////////////////////////////////
+// ///////////////////////////////////////////////////////////////////////
 app.use(express.static("dist"));
 
 const PageVisit = mongoose.model("PageVisit");
@@ -193,9 +193,9 @@ app.get("*", (req, res, next) => {
             <meta charset="utf-8"/>
             <meta name="theme-color" content="#000000"/>
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-           
+
           </head>
-  
+
           <body>
             <div id="app">${markup}</div>
           </body>
@@ -220,20 +220,26 @@ app.use(function (err, req, res, next) {
 });
 
 //get number of cpus of server
-const numCpu = os.cpus().length;
+// const numCpu = os.cpus().length;
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  // console.log(`Server is listening on port: ${PORT}`)
+});
 
 //if the cluster is master
-if (cluster.isMaster) {
-  for (let i = 0; i < numCpu; i++) {
-    cluster.fork();
-  }
+// if (cluster.isMaster) {
+//   for (let i = 0; i < numCpu; i++) {
+//     cluster.fork();
+//   }
 
-  //if worker dies or is killed
-  cluster.on("exit", (worker, code, signal) => {
-    cluster.fork();
-  });
-} else {
-  sslServer.listen(process.env.PORT || 8080, () => {
-    console.log("Port: " + 8080, process.pid);
-  });
-}
+//   //if worker dies or is killed
+//   cluster.on("exit", (worker, code, signal) => {
+//     cluster.fork();
+//   });
+// } else {
+//   sslServer.listen(process.env.PORT || 8080, () => {
+//     // console.log("Port: " + 8080, process.pid);
+//   });
+// }
