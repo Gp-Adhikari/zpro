@@ -19,29 +19,29 @@ const router = express.Router();
 const root = "../public/images/";
 const validatePath = (user_input, res) => {
   try {
-    if (user_input.indexOf("\0") !== -1) {
-      return res.status(401).json({
-        status: false,
-        message: "Sneeky ?? We're not dumb like you idiot.",
-      });
-    }
-    if (!/^[A-Za-z0-9\-]+$/.test(user_input)) return;
+    // if (user_input.indexOf("\0") !== -1) {
+    //   return res.status(401).json({
+    //     status: false,
+    //     message: "Sneeky ?? We're not dumb like you idiot.",
+    //   });
+    // }
+    // if (!/^[A-Za-z0-9\-]+$/.test(user_input)) return;
 
-    const safe_input = path
-      .normalize(user_input)
-      .replace(/^(\.\.(\/|\\|$))+/, "");
+    // const safe_input = path
+    //   .normalize(user_input)
+    //   .replace(/^(\.\.(\/|\\|$))+/, "");
 
-    const path_string = path.join(root, safe_input);
-    if (path_string.indexOf(root) !== -1) {
-      return res.status(401).json({
-        status: false,
-        message: "Sneeky ?? We're not dumb like you idiot.",
-      });
-    }
+    // const path_string = path.join(root, safe_input);
+    // if (path_string.indexOf(root) !== -1) {
+    //   return res.status(401).json({
+    //     status: false,
+    //     message: "Sneeky ?? We're not dumb like you idiot.",
+    //   });
+    // }
 
     return (validPath = {
-      path: String(path_string + ".jpeg"),
-      filename: String(safe_input + ".jpeg"),
+      path: String(path.join(root, user_input) + ".jpeg"),
+      filename: String(user_input + ".jpeg"),
     });
   } catch (error) {
     return res.status(401).json({
