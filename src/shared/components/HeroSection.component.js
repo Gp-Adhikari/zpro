@@ -126,23 +126,23 @@ const HeroSection = () => {
       <div className="statsContainer">
         <div className="stats">
           <p>Web Design</p>
-          <p>12</p>
+          <p>12&#43;</p>
         </div>
         <div className="stats">
           <p>Logo Design</p>
-          <p>5</p>
+          <p>5&#43;</p>
         </div>
         <div className="stats">
           <p>Satisfied Clients</p>
-          <p>5</p>
+          <p>5&#43;</p>
         </div>
         <div className="stats">
           <p>Mockup Design</p>
-          <p>20</p>
+          <p>20&#43;</p>
         </div>
         <div className="stats">
           <p>Projects</p>
-          <p>5</p>
+          <p>5&#43;</p>
         </div>
       </div>
       <div className="sectionBreaker">

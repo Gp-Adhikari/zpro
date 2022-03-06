@@ -38,11 +38,11 @@ const Footer = () => {
               </div>
               <div className="firstRowItem">
                 <img src={mailIcon} alt="location" />
-                <p>zprofs.company@gmail.com</p>
+                <p>info@zprofs.org</p>
               </div>
               <div className="firstRowItem">
                 <img src={phoneIcon} alt="location" />
-                <p>+977-9876543210</p>
+                <p>+977-9808458567</p>
               </div>
             </div>
             <div className="secondRow">
@@ -65,7 +65,7 @@ const Footer = () => {
             </div>
             <div className="fourthRow">
               <h2>Get in Touch</h2>
-              <Link to="/contact">
+              <Link to="/contact" onClick={() => scrollToTop()}>
                 <input type="button" value="Contact Us" />
               </Link>
             </div>

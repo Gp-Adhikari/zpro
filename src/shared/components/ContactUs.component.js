@@ -130,13 +130,13 @@ const ContactUs = () => {
                 <div className="Icon">
                   <img src={phoneIcon} alt="location" />
                 </div>
-                <p>+977-9876543210</p>
+                <p>+977-9808458567</p>
               </div>
               <div className="contactDetail">
                 <div className="Icon">
                   <img src={mailIcon} alt="location" />
                 </div>
-                <p>zpro.company@gmail.com</p>
+                <p>info@zprofs.org</p>
               </div>
               <div className="contactDetail">
                 <div className="Icon">

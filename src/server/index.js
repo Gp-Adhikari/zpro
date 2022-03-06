@@ -186,7 +186,7 @@ app.get("*", (req, res, next) => {
         <!doctype html>
         <html lang="en">
           <head>
-          <title>Zpro - Official Site</title>
+          <title>Zprofs - Official Site</title>
             <script src="/bundle.js" defer></script>
             <link href="/main.css" rel="stylesheet">
             <link rel="manifest" href="/manifest.json"/>
